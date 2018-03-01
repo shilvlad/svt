@@ -39,29 +39,24 @@ def load_sap_file(request):
 
 
 def load_to_db(request, doc_id):
-    print "dd"
+
     doc = SvtPeriod.objects.get(id=doc_id)
-    unit = SvtUnit()
+    #unit = SvtUnit()
     wb = load_workbook(doc.upload)
     sheet_ranges = wb[wb.sheetnames[0]]
     i=2
+
+    unit = SvtUnit()
     while sheet_ranges['D'+str(i)].value is not None:
+
         print "Raw number: ", i
-        #print sheet_ranges['D' + str(i)].value
-        #print sheet_ranges['A' + str(i)].value
-        #print sheet_ranges['C' + str(i)].value
-        #print sheet_ranges['B' + str(i)].value
+
         unit.bar_code = sheet_ranges['D' + str(i)].value
         unit.type = sheet_ranges['A' + str(i)].value
         unit.sn = sheet_ranges['C' + str(i)].value
         unit.desc = sheet_ranges['B' + str(i)].value
-        
         unit.save()
-        print unit
-
         i = i + 1
-
-
 
     context = {  }
     return render(request, 'documents/load_to_db.html', context)
