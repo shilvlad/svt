@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Загрузка данных SAP</title>
+</head>
+
+<body>
+<form id="load_sap_file" method="post" action="/documents/load_sap_file/">
+    {% csrf_token %}
+    {{ form }}
+
+    <br>
+    <button type="submit" class="btn btn-primary">ОК</button>
+
+</form>
+
+
+</body>
+</html>
