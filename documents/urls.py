@@ -4,7 +4,8 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.start, name='start'),
-    url(r'^\load_sap_file/$', views.load_sap_file, name='load_sap_file'),
+    url(r'^load_sap_file/$', views.load_sap_file, name='load_sap_file'),
+    url(r'^load_to_db/(?P<doc_id>[0-9]+)/$', views.load_to_db, name='load_to_db'),
     #url(r'^contacts/', views.contacts, name='contacts'),
     #url(r'^userrequest/', views.userrequest, name='userrequest'),
     #url(r'^login/', views.user_login, name='login'),

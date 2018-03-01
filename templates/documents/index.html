@@ -9,14 +9,17 @@
 
 Документы:
 
-    <table>
-        {% for i in docs %}
+<table>
+    {% for i in docs %}
         <tr>
-            <td>i.id</td>
-            <td></td>
+            <td>{{ i.id }}</td>
+            <td>{{ i.month_of_service }}</td>
+            <td>{{ i.year_of_service }}</td>
+            <td>{{ i.upload }}</td>
+            <td><a href="/documents/load_to_db/{{ i.id }}">Обработать</td>
         </tr>
-        {% endfor %}
-    </table>
+    {% endfor %}
+</table>
 
 
 <a href="\documents\load_sap_file\">Загрузить файл</a>>
